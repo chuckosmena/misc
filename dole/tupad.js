@@ -12,7 +12,7 @@ var gooein = {
 			['id_type': 'PHILSYS ID'],
 		},
 	},
-	getCookie: function(cname) {
+	getCookie(cname) {
 		let name = cname + "=";
 		let decodedCookie = decodeURIComponent(document.cookie);
 		let ca = decodedCookie.split(';');
@@ -27,7 +27,7 @@ var gooein = {
 		}
 		return "";
 	},
-	documentKeyDown: function(e) {
+	documentKeyDown(e) {
 		let keyCode = e.keyCode;
 		// CTRL+ENTER
 		if ((event.keyCode == 10 || event.keyCode == 13) && event.ctrlKey) {
@@ -45,7 +45,7 @@ var gooein = {
 			$('input[name="first_name"]').focus();
 		}
 	},
-	manipulateFields: function() {
+	manipulateFields() {
 		// hide unwanted fields/sections
 		$('select[name="beneficiary_type[]"]').closest('.fv-plugins-icon-container').parent().hide();
 		$('select[name="skills_training"]').closest('.row').hide();
@@ -58,7 +58,7 @@ var gooein = {
 		$('input[name="others"]').closest('.col-lg-6').attr('class', 'col-lg-12');
 		$('input[name="dependent_name"]').closest('.col-lg-6').attr('class', 'col-lg-12');
 	},
-	populateFields: function() {
+	populateFields() {
 		$(this.default.select).each(function(i) {
 			('select[name="' + i[0] + '"]').val(i[1]).change();
 		});
@@ -72,7 +72,7 @@ var gooein = {
 		// 	$('select[name="mode_of_payment"]').val('MONEY REMITTANCE').change();
 		// 	$('select[name="id_type"]').val('PHILSYS ID').change();
 	},
-	focus: function() {
+	focus() {
 		$('input[name="id_no"]').focus();
 	},
 };
