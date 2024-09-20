@@ -1,5 +1,5 @@
 var gooein = {
-	cookie: 'compilerhub',
+	cookie: 'compilerhub1',
 };
 
 function getCookie(cname) {
