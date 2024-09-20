@@ -1,16 +1,16 @@
-var gooein = {
+var gooien = {
 	cookie: 'compilerhub',
 	default: {
-		select: {
-			['sex': 'F'],
-			['civil_status': 'MARRIED'],
-			['occupation': 'OTHER'],
-			['beneficiary_type[]': 'UNDEREMPLOYED/SELF-EMPLOYED WORKERS'],
-			['skills_training': 'NONE'],
-			['income_bracket': '3'],
-			['mode_of_payment': 'MONEY REMITTANCE'],
-			['id_type': 'PHILSYS ID'],
-		},
+		select: [
+			['sex', 'F'],
+			['civil_status', 'MARRIED'],
+			['occupation', 'OTHER'],
+			['beneficiary_type[]', 'UNDEREMPLOYED/SELF-EMPLOYED WORKERS'],
+			['skills_training', 'NONE'],
+			['income_bracket', '3'],
+			['mode_of_payment', 'MONEY REMITTANCE'],
+			['id_type', 'PHILSYS ID'],
+		],
 	},
 	getCookie(cname) {
 		let name = cname + "=";
@@ -59,18 +59,9 @@ var gooein = {
 		$('input[name="dependent_name"]').closest('.col-lg-6').attr('class', 'col-lg-12');
 	},
 	populateFields() {
-		$(this.default.select).each(function(i) {
-			('select[name="' + i[0] + '"]').val(i[1]).change();
+		$(this.default.select).each(function(i, v) {
+			$('select[name="' + v[0] + '"]').val(v[1]).change();
 		});
-
-		// $('select[name="sex"]').val('F').change();
-		// 	$('select[name="civil_status"]').val('MARRIED').change();
-		// 	$('select[name="occupation"]').val('OTHER').change();
-		// 	$('select[name="beneficiary_type[]"]').val('UNDEREMPLOYED/SELF-EMPLOYED WORKERS').change();
-		// 	$('select[name="skills_training"]').val('NONE').change();
-		// 	$('select[name="income_bracket"]').val('3').change();
-		// 	$('select[name="mode_of_payment"]').val('MONEY REMITTANCE').change();
-		// 	$('select[name="id_type"]').val('PHILSYS ID').change();
 	},
 	focus() {
 		$('input[name="id_no"]').focus();
