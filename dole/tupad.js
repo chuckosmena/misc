@@ -65,6 +65,7 @@ var gooien = {
     $(this.default.select).each(function(i, v) {
       $('select[name="' + v[0] + '"]').val(v[1]).change();
     });
+    $('input[name="dependent_name"]').val($('input[name="last_name"]').val());
   },
   focus() {
     $('input[name="id_no"]').focus();
