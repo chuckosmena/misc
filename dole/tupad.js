@@ -27,6 +27,14 @@ var gooien = {
 		}
 		return "";
 	},
+	createBeneficiary() {
+		if ($('#btn-create-beneficiary').length) {
+			$('#btn-create-beneficiary').click();
+		} else {
+			$('#a-access-btn-create').click();
+		}
+		$('input[name="first_name"]').focus();
+	},
 	documentKeyDown(e) {
 		let keyCode = e.keyCode;
 		// CTRL+ENTER
@@ -37,12 +45,7 @@ var gooien = {
 
 		// CTRL+.
 		if (event.keyCode == 110 && event.ctrlKey) {
-			if ($('#btn-create-beneficiary').length) {
-				$('#btn-create-beneficiary').click();
-			} else {
-				$('#a-access-btn-create').click();
-			}
-			$('input[name="first_name"]').focus();
+			this.createBeneficiary();
 		}
 	},
 	manipulateFields() {
@@ -67,3 +70,20 @@ var gooien = {
 		$('input[name="id_no"]').focus();
 	},
 };
+
+if (gooien && gooien.getCookie(gooien.cookie) == 'Admin') {
+	$(document).bind("ajaxComplete", function(e, r, s) {
+		if (s.url.includes("beneficiary?dups=") && !r.responseJSON.success) {
+			setTimeout(function(){ Swal.clickConfirm(); }, 500);
+		} else if (s.url.includes("beneficiary") && s.type=="POST" && r.responseJSON.success) {
+			setTimeout(function(){
+				Swal.clickConfirm();
+				gooien.createBeneficiary();
+			}, 500);
+		}
+	});
+	
+	$('form#verifyForm, form#beneficiaryForm').on('submit', function() {
+		setTimeout(function(){ Swal.clickConfirm(); }, 500);
+	});
+}
