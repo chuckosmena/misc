@@ -45,7 +45,7 @@ var gooien = {
 
 		// CTRL+.
 		if (event.keyCode == 110 && event.ctrlKey) {
-			this.createBeneficiary();
+			gooien.createBeneficiary();
 		}
 	},
 	manipulateFields() {
