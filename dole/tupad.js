@@ -81,11 +81,11 @@ if (gooien && gooien.getCookie(gooien.cookie) == 'Admin') {
       setTimeout(function() {
         Swal.clickConfirm();
         gooien.createBeneficiary();
-      }, 500);
+      }, 100);
     }
   });
 
   $('form#verifyForm, form#beneficiaryForm').on('submit', function() {
-    setTimeout(function() { Swal.clickConfirm(); }, 500);
+    setTimeout(function() { Swal.clickConfirm(); }, 100);
   });
 }
