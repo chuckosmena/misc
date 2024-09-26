@@ -66,6 +66,7 @@ var gooien = {
       $('select[name="' + v[0] + '"]').val(v[1]).change();
     });
     $('input[name="dependent_name"]').val($('input[name="last_name"]:eq(1)').val());
+    $('input[name="contact_no"]').val('00000000000');
   },
   focus() {
     $('input[name="id_no"]').focus();
