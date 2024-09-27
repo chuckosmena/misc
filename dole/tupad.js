@@ -9,7 +9,7 @@ var gooien = {
       ['skills_training', 'NONE'],
       ['income_bracket', '3'],
       ['mode_of_payment', 'MONEY REMITTANCE'],
-      ['id_type', 'PHILSYS ID'],
+      ['id_type', 'NATIONAL ID'],
     ],
   },
   getCookie(cname) {
