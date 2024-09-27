@@ -49,17 +49,19 @@ var gooien = {
     }
   },
   manipulateFields() {
-    // hide unwanted fields/sections
-    $('select[name="beneficiary_type[]"]').closest('.fv-plugins-icon-container').parent().hide();
-    $('select[name="skills_training"]').closest('.row').hide();
-    $('select[name="occupation"]').closest('.col-lg-6').hide();
-    $('select[name="skills_training"]').closest('.row').hide();
-    $('select[name="mode_of_payment"]').closest('.row').hide();
-    $('select[name="income_bracket"]').closest('.col-lg-6').hide();
-
-    // change input size
-    $('input[name="others"]').closest('.col-lg-6').attr('class', 'col-lg-12');
-    $('input[name="dependent_name"]').closest('.col-lg-6').attr('class', 'col-lg-12');
+    if (gooien.getCookie(gooien.cookie) != 'Admin') {
+      // hide unwanted fields/sections
+      $('select[name="beneficiary_type[]"]').closest('.fv-plugins-icon-container').parent().hide();
+      $('select[name="skills_training"]').closest('.row').hide();
+      $('select[name="occupation"]').closest('.col-lg-6').hide();
+      $('select[name="skills_training"]').closest('.row').hide();
+      $('select[name="mode_of_payment"]').closest('.row').hide();
+      $('select[name="income_bracket"]').closest('.col-lg-6').hide();
+  
+      // change input size
+      $('input[name="others"]').closest('.col-lg-6').attr('class', 'col-lg-12');
+      $('input[name="dependent_name"]').closest('.col-lg-6').attr('class', 'col-lg-12');
+    }
   },
   populateFields() {
     $(this.default.select).each(function(i, v) {
