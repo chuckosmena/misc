@@ -49,7 +49,7 @@ var gooien = {
     }
   },
   manipulateFields() {
-    if (gooien.getCookie(gooien.cookie) == 'Admin') {
+    if (gooien.getCookie(gooien.cookie) == 'manipulate') {
       // hide unwanted fields/sections
       $('select[name="beneficiary_type[]"]').closest('.fv-plugins-icon-container').parent().hide();
       $('select[name="skills_training"]').closest('.row').hide();
